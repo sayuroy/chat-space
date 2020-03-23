@@ -30,17 +30,19 @@ Things you may want to cover:
 |------|----|-------|
 |email|string|null: false|
 |password|string|null: false|
-|username|string|null: false|
+|name|string|null: false, index: true|
 ### Assosiation
 - has_many :chats
-- has_many :group, through: groups_users
+- has_many :groups_users
+- has_many :groups, through: :groups_users
 
 ## chatテーブル
 |Column|Type|Options|
 |------|----|-------|
-|text|text|null: false|
-|user_id|integer|null: false, foreign_key: true|
-|group_id|integer|null: false, foreign_key: true|
+|text|text| |
+|image|string| |
+|user|references|null: false, foreign_key: true|
+|group|references|null: false, foreign_key: true|
 ### Assosiation
 - belongs_to :user
 - belongs_to :group
@@ -51,13 +53,14 @@ Things you may want to cover:
 |name|text|null: false|
 ### Assosiation
 - has_many :groups_users
-- has_many :users, through: groups_users
+- has_many :groups_users
+- has_many :users, through: :groups_users
 
 ## groups_usersテーブル
 |Column|Type|Options|
 |------|----|-------|
-|user_id|integer|null: false, foreign_key: true|
-|group_id|integer|null: false, foreign_key: true|
+|user_id|references|null: false, foreign_key: true|
+|group_id|references|null: false, foreign_key: true|
 ### Association
 - belongs_to :group
 - belongs_to :user
