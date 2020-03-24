@@ -11,9 +11,11 @@
           = link_to edit_user_path(current_user), class:"side_edit" do
             = icon("fas", "cog", class: 'icon')
   .side__groups
-    .side__group_box
-      %p.side__group_box_name
-        techcamp
-      %p.side__group_box_message
-        まだメッセージがありません
+    - current_user.groups.each do |group|
+      .side__group_box
+        =link_to '#' do
+          .side__group_box_name
+            = group.name
+          .side__group_box_message
+            メッセージはまだありません。
 
