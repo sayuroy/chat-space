@@ -22,6 +22,10 @@
           padding-left: 40px;
           color: #999999;
           font-size: 12px;
+          display: flex;
+          ul{
+            display: flex;
+          }
         }
       }
       &_edit_btn{
@@ -55,9 +59,11 @@
           }
         }
         &_text{
-          margin-top: 12px;
+          &_content{
+            margin-top: 12px;
           color: #434A54;
           font-size: 14px;
+          }
         }
       }
     }

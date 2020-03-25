@@ -1,0 +1,33 @@
+.main__message
+  .main__message_info
+    .main__message_info_user-name
+      = message.user.name
+    .main__message_info_date
+      = message.created_at.strftime("%Y年%m月%d日 %H時%M分")
+  .main__message_text
+    - if message.content.present?
+      %p.main__message_text_content
+        = message.content
+    = image_tag message.image.url, class: 'main__message_image' if message.image.present?
+
+
+
+
+
+//最初から・main_chatのmain__messagesの下
+/-# .main__message
+/-#       .main__message_info
+/-#         %a.main__message_info_user-name
+/-#           sayu
+/-#         %a.main__message_info_date
+/-#           2020/03/23(Mon) 18:50:00
+/-#       %p.main__message_text
+/-#         おはよう！
+/-#     .main__message
+/-#       .main__message_info
+/-#         %a.main__message_info_user-name
+/-#           sayu
+/-#         %a.main__message_info_date
+/-#           2020/03/23(Mon) 19:10:00
+/-#       %p.main__message_text
+/-#         こんにちは！
