@@ -1,35 +1,32 @@
 .main
   .main__header
     .main__header_box
-      %p.main__header_group-name
-        test
-      %p.main__header_group-member
-        Member : masa
-    = link_to "Edit", class:"main__header_edit_btn" do
+      .main__header_group-name
+        = @group.name
+      .main__header_group-member
+        Member : 
+        %ul
+          - @group.users.each do |user|
+            %li= "#{user.name} ,"
+    = link_to edit_group_path(@group), class:"main__header_edit_btn" do
       = "Edit"
   .main__messages
-    .main__message
-      .main__message_info
-        %a.main__message_info_user-name
-          sayu
-        %a.main__message_info_date
-          2020/03/23(Mon) 18:50:00
-      %p.main__message_text
-        おはよう！
-    .main__message
-      .main__message_info
-        %a.main__message_info_user-name
-          sayu
-        %a.main__message_info_date
-          2020/03/23(Mon) 19:10:00
-      %p.main__message_text
-        こんにちは！
+    = render @messages
   .main__form
-    %form.new_message
+    = form_for [@group, @message] do |f|
+      = f.text_field :content, class: "input_message", placeholder: "type a message"
       .input-box
-        %input{type: "text", class: "input_message", placeholder: "type a message"}
-        %label{class: "input_image"}
-          = icon("fas", "image")
-          %input{type: "file", class: "input_image_file"}
-      %input{type: "submit", value: "Send", class: "submit-btn"}
+        = f.label :image, class: "input_image" do
+          = icon("fas", "image", class: 'icon')
+          = f.file_field :image, class: 'hidden input_image_file'
+      = f.submit 'Send', class: "submit-btn"
+
+//main__formから下
+/    -# %form.new_message
+/    -#   .input-box
+/    -#     %input{type: "text", class: "input_message", placeholder: "type a message"}
+/    -#     %label{class: "input_image"}
+/    -#       = icon("fas", "image")
+/    -#       %input{type: "file", class: "input_image_file"}
+/    -#   %input{type: "submit", value: "Send", class: "submit-btn"}
 

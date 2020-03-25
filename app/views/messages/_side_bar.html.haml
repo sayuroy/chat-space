@@ -6,16 +6,16 @@
       %ul.side__header_box_icons 
         %li
           = link_to new_group_path, class:"side_newgroup" do
-            = icon("fas", "edit")
+            = icon("fas", "edit", class: 'icon')
         %li
           = link_to edit_user_path(current_user), class:"side_edit" do
             = icon("fas", "cog", class: 'icon')
   .side__groups
     - current_user.groups.each do |group|
       .side__group_box
-        =link_to '#' do
+        = link_to group_messages_path(group) do
           .side__group_box_name
             = group.name
           .side__group_box_message
-            メッセージはまだありません。
+            = group.show_last_message
 
