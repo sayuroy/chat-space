@@ -23,7 +23,7 @@
         display: flex;
         text-align: right;
         a {
-          color: $font_color_w;
+          color:$font_color_w;
           margin-left: 5px;
         }
       } 
@@ -33,6 +33,7 @@
 .side__groups{
   height: calc(100vh - 100px);
   background-color: #2f3e51;
+  overflow: scroll;
   .side__group_box{
     &_name{
       color: $font_color_w;

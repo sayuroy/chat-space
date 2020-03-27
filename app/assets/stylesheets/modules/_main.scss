@@ -42,8 +42,9 @@
       }
     }
     .main__messages{
-      height: calc(100vh - 190px);
+      height: calc(100% - 190px);
       background-color: #fafafa;
+      overflow: scroll;
       .main__message{
         padding-top: 35px;
         padding-bottom: 11px;
@@ -74,10 +75,15 @@
       padding: 20px 40px;
       .new_message{
         display: flex;
+        .input_message{
+          width: calc(100% - 50px);
+          border: none;
+        }
         .input-box{
-          width: 100%;
+          width: 50px;
           display: flex;
           position: relative;
+          background-color: white;
           .input_message{
             width: 100%;
             line-height: 50px;
@@ -88,6 +94,9 @@
             position: absolute;
             top:12px;
             right: 10px;
+            .icon{
+              cursor: pointer;
+            }
             &_file {
               display: none;
             }
