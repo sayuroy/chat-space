@@ -37,13 +37,11 @@
   .side__group_box{
     &_name{
       color: $font_color_w;
-      font-weight: bold;
       font-size: 15px;
       padding: 20px 20px 5px 20px;
     }
     &_message{
       color: $font_color_w;
-      font-weight: bold;
       font-size: 11px;
       padding: 0 20px 40px 20px;
     }
